@@ -1,5 +1,5 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -12,7 +12,7 @@ int main() {
         cout << "Error!" << endl;
         return 0;
     }
-    file>>numbersOfLines;
+    file >> numbersOfLines;
     cout << numbersOfLines << endl;
     while (!file.eof()) {
         getline(file, text);
@@ -21,11 +21,5 @@ int main() {
 
     file.close();
 
-	int a=5;
-	int b=2;
-	
-	int suma= a+b;
-	cout << suma;
-	
     return 0;
 }
