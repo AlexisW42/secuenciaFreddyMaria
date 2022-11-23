@@ -12,13 +12,20 @@ int main() {
         cout << "Error!" << endl;
         return 0;
     }
-    getline(file, text);
-    numbersOfLines = stoi(text);
-    cout << numbersOfLines << endl;
+    file >> numbersOfLines;
+    cout << "numbersOfLines " << numbersOfLines << endl;
 
     for (int i = 0; i < numbersOfLines; i++) {
-        getline(file, text);
-        cout << "linea leida: " << text << endl;
+        int num;
+        file >> num;
+        cout << num << " "; 
+        for (int i = 0; i < num; i++)
+        {
+            int numero;
+            file >> numero;
+            cout << numero << " "; 
+        }
+        cout << endl;
     }
 
     file.close();
