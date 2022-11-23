@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> readLine(ifstream &file);
+vector<int> readNextLine(ifstream &file);
 vector<int> readItems(ifstream &file, int numberOfItems);
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
     file >> numbersOfLines;
 
     for (int i = 0; i < numbersOfLines; i++) {
-        line = readLine(file);
+        line = readNextLine(file);
     }
 
     file.close();
@@ -28,7 +28,7 @@ int main() {
     return 0;
 }
 
-vector<int> readLine(ifstream &file) {
+vector<int> readNextLine(ifstream &file) {
     vector<int> line;
     int numberOfItems;
     file >> numberOfItems;
