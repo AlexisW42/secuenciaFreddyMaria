@@ -6,6 +6,7 @@ using namespace std;
 
 vector<int> readNextLine(ifstream &file);
 vector<int> readItems(ifstream &file, int numberOfItems);
+int lookLargestNumber (vector<int> array);
 
 int main() {
     ifstream file("secuencias.txt");
@@ -25,8 +26,8 @@ int main() {
         vector<int> longitudes;
         for (long unsigned int i = 0; i < line.size(); i++) {
             if (i + 1 < line.size()) {
-                cout << " i: " << i << " "
-                     << "\"contador: \"" << acumulador << "." << endl;
+                // cout << " i: " << i << " "
+                //      << "\"contador: \"" << acumulador << "." << endl;
                 if (i % 2 == 0) {
                     if (line[i] > line[i + 1]) {
                         acumulador++;
@@ -49,14 +50,12 @@ int main() {
                     acumulador = 1;
                 }
 
-                for (long unsigned int j = 0; j < longitudes.size(); j++) {
-                    cout << "'" << longitudes[j] << "' ";
-                }
+                // for (long unsigned int j = 0; j < longitudes.size(); j++) {
+                     cout << lookLargestNumber(longitudes) << endl;
+                // }
                 break;
             }
         }
-
-        cout << endl;
     }
 
     file.close();
@@ -80,4 +79,14 @@ vector<int> readItems(ifstream &file, int numberOfItems) {
         line.push_back(number);
     }
     return line;
+}
+
+int lookLargestNumber (vector<int> array) {
+    int largest = 0;
+
+    for (long unsigned int i = 0; i < array.size(); i++){
+        if (array[i]>largest)
+            largest=array[i];
+    }
+    return largest;
 }
