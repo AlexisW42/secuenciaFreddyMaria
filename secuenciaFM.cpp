@@ -18,12 +18,11 @@ int main() {
     for (int i = 0; i < numbersOfLines; i++) {
         int num;
         file >> num;
-        cout << num << " "; 
-        for (int i = 0; i < num; i++)
-        {
+        cout << num << " ";
+        for (int i = 0; i < num; i++) {
             int numero;
             file >> numero;
-            cout << numero << " "; 
+            cout << numero << " ";
         }
         cout << endl;
     }
