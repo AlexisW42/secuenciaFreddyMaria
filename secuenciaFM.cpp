@@ -4,38 +4,36 @@
 
 using namespace std;
 
-void readLines(ifstream &file, int numbersOfLines);
+vector<int> readLine(ifstream &file);
 vector<int> readItems(ifstream &file, int numberOfItems);
 
 int main() {
     ifstream file("secuencias.txt");
-    string text;
     int numbersOfLines;
+    vector<int> line;
 
     if (file.fail()) {
-        cout << "Error!" << endl;
+        cout << "Error en archivo!" << endl;
         return 0;
     }
-    file >> numbersOfLines;
-    cout << "numbersOfLines " << numbersOfLines << endl;
 
-    readLines(file, numbersOfLines);
+    file >> numbersOfLines;
+
+    for (int i = 0; i < numbersOfLines; i++) {
+        line = readLine(file);
+    }
 
     file.close();
 
     return 0;
 }
 
-void readLines(ifstream &file, int numbersOfLines) {
-    for (int i = 0; i < numbersOfLines; i++) {
-        int numberOfItems;
-        vector<int> line;
-        file >> numberOfItems;
-        cout << numberOfItems << " ";
-        line = readItems(file, numberOfItems);
-        cout << endl;
-        
-    }
+vector<int> readLine(ifstream &file) {
+    vector<int> line;
+    int numberOfItems;
+    file >> numberOfItems;
+    line = readItems(file, numberOfItems);
+    return line;
 }
 
 vector<int> readItems(ifstream &file, int numberOfItems) {
@@ -44,7 +42,6 @@ vector<int> readItems(ifstream &file, int numberOfItems) {
         int number;
         file >> number;
         line.push_back(number);
-        cout << number << " ";
     }
     return line;
 }
