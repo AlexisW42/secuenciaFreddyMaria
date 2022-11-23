@@ -21,6 +21,42 @@ int main() {
 
     for (int i = 0; i < numbersOfLines; i++) {
         line = readNextLine(file);
+        int acumulador = 1;
+        vector<int> longitudes;
+        for (long unsigned int i = 0; i < line.size(); i++) {
+            if (i + 1 < line.size()) {
+                cout << " i: " << i << " "
+                     << "\"contador: \"" << acumulador << "." << endl;
+                if (i % 2 == 0) {
+                    if (line[i] > line[i + 1]) {
+                        acumulador++;
+                    } else {
+                        longitudes.push_back(acumulador);
+                        acumulador = 0;
+                    }
+                }
+                if (i % 2 != 0) {
+                    if (line[i] < line[i + 1]) {
+                        acumulador++;
+                    } else {
+                        longitudes.push_back(acumulador);
+                        acumulador = 0;
+                    }
+                }
+            } else {
+                if (acumulador != 1) {
+                    longitudes.push_back(acumulador);
+                    acumulador = 1;
+                }
+
+                for (long unsigned int j = 0; j < longitudes.size(); j++) {
+                    cout << "'" << longitudes[j] << "' ";
+                }
+                break;
+            }
+        }
+
+        cout << endl;
     }
 
     file.close();
